@@ -7,45 +7,48 @@
 
 import SwiftUI
 import CoreMotion
-import WatchConnectivity // iphone側にデータを送信する
+import WatchConnectivity
 
 struct ContentView: View {
     
-    var session = WKExtendedRuntimeSession() // このセッションを使うことで1Hzになることを延長する
-    var wcSession: WCSession // お試し
+    var runtimeSession = WKExtendedRuntimeSession() // このセッションを使うことで1Hzになることを延長する
+    var viewModel = ViewModel()
+    
     let motionManager = CMMotionManager() //CMMotionManagerのインスタンス化
     let queue = OperationQueue()
-    let url = FileManager.default.urls(for: .documentDirectory,
-                                       in: .userDomainMask).first! //Documentsディレクトリのパスを取得 (FileManagaerを使っているのでURL型)
+    let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     let formatter = DateFormatter()
     let writer = MotionWriter() //書き込み用classをインスタンス化
     
-    // varから始まるのはプロパティ
+    var session: WCSession
+
+    
     var body: some View {
-        
-        
         VStack {
             Button(action: {
                 print("START")
-                session.start() //session start (Session to avoid 1Hz refresh rate)
-                writer.open(filePath: url) //想定しているデータ型はfilePathにURL型が格納されている状態
+                runtimeSession.start() //session start (Session to avoid 1Hz refresh rate)
+                writer.open(url) // urlにcsv fileが作成される
                 self.startQueuedUpdates()
             }, label: {
                 Text("Start")
                     .bold()
                     .foregroundColor(.green)
             })
+            
             Button(action: {
                 self.motionManager.stopDeviceMotionUpdates()
-                print("STOP")
                 writer.close()
+                print("STOP")
+
+                print("PASS here")
             }, label: {
                 Text("Stop")
                     .bold()
                     .foregroundColor(.red)
             })
         }
-    } // varここまで
+    }
     
     func startQueuedUpdates() {
        if motionManager.isDeviceMotionAvailable {
@@ -55,12 +58,12 @@ struct ContentView: View {
                                                 to: self.queue,
                                                 withHandler: { (data, error) in
                if let data = data {
-                   writer.write(motion: data)
+                   writer.write(data)
                }
                if let error = error {
                    print(error)
                }
-               
+               /*
                // Make sure the data is valid before accessing it.
                if let validData = data {
                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS" // TimeStampの生成. ISO8601の拡張形式に則る
@@ -86,12 +89,10 @@ struct ContentView: View {
                    let csvString = "time,roll,pitch,yaw,graX,graY,graZ,roX,roY,roZ,accX,accY,accZ\n"
                    + "\(timestamp),\(roll),\(pitch),\(yaw),\(gravity_x),\(gravity_y),\(gravity_z),\(rotation_x),\(rotation_y),\(rotation_z),\(accx),\(accy),\(accz)\n"
                    print(csvString)
-               }
+               }*/
             })
         }
-    } //funcここまで
-    
-   
+    }
 } // MARK: データを可視化させたい.
 
 struct ContentView_Previews: PreviewProvider {

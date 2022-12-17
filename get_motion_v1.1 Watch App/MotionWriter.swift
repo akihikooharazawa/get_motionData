@@ -12,15 +12,13 @@ class MotionWriter {
     
     var file: FileHandle?
     var sample: Int = 0
-    let url = FileManager.default.urls(for: .documentDirectory,
-                                       in: .userDomainMask).first! //Documentsディレクトリのパスを取得 (FileManagaerを使っているのでURL型)
+    let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     let formatter = DateFormatter()
     
-    func open(filePath: URL) { // 引数はfilePath. 引数の型名はURL型に指定
+    func open(_ filePath: URL) { // 引数はfilePath. 引数の型名はURL型に指定
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" //変換フォーマット定義
         let filename = formatter.string(from: Date()) + ".csv" //データ変換(Date->Text)
         let filePath = url.appendingPathComponent(filename)
-        print(filePath)
         do {
             FileManager.default.createFile(atPath: filePath.path,
                                            contents: nil,
@@ -42,7 +40,7 @@ class MotionWriter {
             header += "acceleration_y,"
             header += "acceleration_z,"
             header += "\n"
-            file.write(header.data(using: .utf8)!) // String -> Dataに変換
+            file.write(header.data(using: .utf8)!)
             self.file = file
             print("create file!")
         } catch let error {
@@ -50,9 +48,9 @@ class MotionWriter {
         }
     }
     
-    func write(motion: CMDeviceMotion) {
+    func write(_ motion: CMDeviceMotion) {
         guard let file = self.file else { return }
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS" // 変換フォーマット定義(ISO8601の拡張形式に則る)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         let timestamp = formatter.string(from: Date())
         
         var text = ""
@@ -72,6 +70,7 @@ class MotionWriter {
         text += "\n"
         file.write(text.data(using: .utf8)!)
         sample += 1
+        //print(text)
     }
     
     func close() {

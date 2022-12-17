@@ -17,6 +17,8 @@
 		F54E5781294BE89D000839A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54E5780294BE89D000839A7 /* Assets.xcassets */; };
 		F54E5784294BE89D000839A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54E5783294BE89D000839A7 /* Preview Assets.xcassets */; };
 		F54E57A5294CBCED000839A7 /* MotionWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E57A4294CBCED000839A7 /* MotionWriter.swift */; };
+		F54E57AD294D8E19000839A7 /* WCSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E57AC294D8E19000839A7 /* WCSessionDelegate.swift */; };
+		F54E57AF294D9626000839A7 /* WCSessionDelegateWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E57AE294D9626000839A7 /* WCSessionDelegateWatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		F54E57A4294CBCED000839A7 /* MotionWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionWriter.swift; sourceTree = "<group>"; };
 		F54E57A8294CC05F000839A7 /* get-motion-v1-1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "get-motion-v1-1-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F54E57A9294CC0BC000839A7 /* get-motion-v1-1-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "get-motion-v1-1-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F54E57AC294D8E19000839A7 /* WCSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionDelegate.swift; sourceTree = "<group>"; };
+		F54E57AE294D9626000839A7 /* WCSessionDelegateWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionDelegateWatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 				F54E57A8294CC05F000839A7 /* get-motion-v1-1-Info.plist */,
 				F54E576A294BE89C000839A7 /* get_motion_v1_1App.swift */,
 				F54E576C294BE89C000839A7 /* ContentView.swift */,
+				F54E57AC294D8E19000839A7 /* WCSessionDelegate.swift */,
 				F54E576E294BE89D000839A7 /* Assets.xcassets */,
 				F54E5770294BE89D000839A7 /* Preview Content */,
 			);
@@ -122,6 +127,7 @@
 				F54E577C294BE89D000839A7 /* get_motion_v1_1App.swift */,
 				F54E577E294BE89D000839A7 /* ContentView.swift */,
 				F54E57A4294CBCED000839A7 /* MotionWriter.swift */,
+				F54E57AE294D9626000839A7 /* WCSessionDelegateWatch.swift */,
 				F54E5780294BE89D000839A7 /* Assets.xcassets */,
 				F54E5782294BE89D000839A7 /* Preview Content */,
 			);
@@ -241,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54E57AD294D8E19000839A7 /* WCSessionDelegate.swift in Sources */,
 				F54E576D294BE89C000839A7 /* ContentView.swift in Sources */,
 				F54E576B294BE89C000839A7 /* get_motion_v1_1App.swift in Sources */,
 			);
@@ -253,6 +260,7 @@
 				F54E577F294BE89D000839A7 /* ContentView.swift in Sources */,
 				F54E577D294BE89D000839A7 /* get_motion_v1_1App.swift in Sources */,
 				F54E57A5294CBCED000839A7 /* MotionWriter.swift in Sources */,
+				F54E57AF294D9626000839A7 /* WCSessionDelegateWatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

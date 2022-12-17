@@ -6,25 +6,40 @@
 //
 
 import SwiftUI
-import WatchConnectivity
+//import WatchConnectivity
 
 struct ContentView: View {
+    //@State private var message = ""
+    
+    var viewModel = ViewModel()
+    
+    @State private var isReachable = "NO"
+
     var body: some View {
-        
-        //追加
-        if WCSession.isSupported() {
-            let session = WCSession.defaultSession()
-            session.delegate = self
-            session.activateSession()
+        NavigationView {
+            VStack {
+                HStack {
+                    Button(action: {
+                        // true の場合メッセージ送信可能
+                        self.isReachable = self.viewModel.session.isReachable ? "YES": "NO"
+                    }) {
+                        Text("Check")
+                    }
+                    .padding(.leading, 16.0)
+                    Spacer()
+                    Text("isReachable")
+                        .font(.headline)
+                        .padding()
+                    Text(self.isReachable)
+                        .foregroundColor(.gray)
+                        .font(.subheadline)
+                        .padding()
+                }
+                .background(Color.init(.systemGray5))
+                Spacer()
+            }
+            .navigationTitle("Receiver")
         }
-        
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
     }
 }
 
