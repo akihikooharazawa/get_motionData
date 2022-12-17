@@ -1,0 +1,544 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F54E576B294BE89C000839A7 /* get_motion_v1_1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E576A294BE89C000839A7 /* get_motion_v1_1App.swift */; };
+		F54E576D294BE89C000839A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E576C294BE89C000839A7 /* ContentView.swift */; };
+		F54E576F294BE89D000839A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54E576E294BE89D000839A7 /* Assets.xcassets */; };
+		F54E5772294BE89D000839A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54E5771294BE89D000839A7 /* Preview Assets.xcassets */; };
+		F54E5778294BE89D000839A7 /* get_motion_v1.1 Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F54E5777294BE89D000839A7 /* get_motion_v1.1 Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F54E577D294BE89D000839A7 /* get_motion_v1_1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E577C294BE89D000839A7 /* get_motion_v1_1App.swift */; };
+		F54E577F294BE89D000839A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E577E294BE89D000839A7 /* ContentView.swift */; };
+		F54E5781294BE89D000839A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54E5780294BE89D000839A7 /* Assets.xcassets */; };
+		F54E5784294BE89D000839A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54E5783294BE89D000839A7 /* Preview Assets.xcassets */; };
+		F54E57A5294CBCED000839A7 /* MotionWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E57A4294CBCED000839A7 /* MotionWriter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F54E5779294BE89D000839A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F54E575F294BE89C000839A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F54E5776294BE89D000839A7;
+			remoteInfo = "get_motion_v1.1 Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F54E578A294BE89D000839A7 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				F54E5778294BE89D000839A7 /* get_motion_v1.1 Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F54E5767294BE89C000839A7 /* get_motion_v1.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = get_motion_v1.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F54E576A294BE89C000839A7 /* get_motion_v1_1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = get_motion_v1_1App.swift; sourceTree = "<group>"; };
+		F54E576C294BE89C000839A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F54E576E294BE89D000839A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F54E5771294BE89D000839A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F54E5777294BE89D000839A7 /* get_motion_v1.1 Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "get_motion_v1.1 Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F54E577C294BE89D000839A7 /* get_motion_v1_1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = get_motion_v1_1App.swift; sourceTree = "<group>"; };
+		F54E577E294BE89D000839A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F54E5780294BE89D000839A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F54E5783294BE89D000839A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F54E57A4294CBCED000839A7 /* MotionWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionWriter.swift; sourceTree = "<group>"; };
+		F54E57A8294CC05F000839A7 /* get-motion-v1-1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "get-motion-v1-1-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F54E57A9294CC0BC000839A7 /* get-motion-v1-1-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "get-motion-v1-1-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F54E5764294BE89C000839A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F54E5774294BE89D000839A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F54E575E294BE89C000839A7 = {
+			isa = PBXGroup;
+			children = (
+				F54E5769294BE89C000839A7 /* get_motion_v1.1 */,
+				F54E577B294BE89D000839A7 /* get_motion_v1.1 Watch App */,
+				F54E5768294BE89C000839A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F54E5768294BE89C000839A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F54E5767294BE89C000839A7 /* get_motion_v1.1.app */,
+				F54E5777294BE89D000839A7 /* get_motion_v1.1 Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F54E5769294BE89C000839A7 /* get_motion_v1.1 */ = {
+			isa = PBXGroup;
+			children = (
+				F54E57A8294CC05F000839A7 /* get-motion-v1-1-Info.plist */,
+				F54E576A294BE89C000839A7 /* get_motion_v1_1App.swift */,
+				F54E576C294BE89C000839A7 /* ContentView.swift */,
+				F54E576E294BE89D000839A7 /* Assets.xcassets */,
+				F54E5770294BE89D000839A7 /* Preview Content */,
+			);
+			path = get_motion_v1.1;
+			sourceTree = "<group>";
+		};
+		F54E5770294BE89D000839A7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F54E5771294BE89D000839A7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F54E577B294BE89D000839A7 /* get_motion_v1.1 Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				F54E57A9294CC0BC000839A7 /* get-motion-v1-1-Watch-App-Info.plist */,
+				F54E577C294BE89D000839A7 /* get_motion_v1_1App.swift */,
+				F54E577E294BE89D000839A7 /* ContentView.swift */,
+				F54E57A4294CBCED000839A7 /* MotionWriter.swift */,
+				F54E5780294BE89D000839A7 /* Assets.xcassets */,
+				F54E5782294BE89D000839A7 /* Preview Content */,
+			);
+			path = "get_motion_v1.1 Watch App";
+			sourceTree = "<group>";
+		};
+		F54E5782294BE89D000839A7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F54E5783294BE89D000839A7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F54E5766294BE89C000839A7 /* get_motion_v1.1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F54E578B294BE89D000839A7 /* Build configuration list for PBXNativeTarget "get_motion_v1.1" */;
+			buildPhases = (
+				F54E5763294BE89C000839A7 /* Sources */,
+				F54E5764294BE89C000839A7 /* Frameworks */,
+				F54E5765294BE89C000839A7 /* Resources */,
+				F54E578A294BE89D000839A7 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F54E577A294BE89D000839A7 /* PBXTargetDependency */,
+			);
+			name = get_motion_v1.1;
+			productName = get_motion_v1.1;
+			productReference = F54E5767294BE89C000839A7 /* get_motion_v1.1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F54E5776294BE89D000839A7 /* get_motion_v1.1 Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F54E5787294BE89D000839A7 /* Build configuration list for PBXNativeTarget "get_motion_v1.1 Watch App" */;
+			buildPhases = (
+				F54E5773294BE89D000839A7 /* Sources */,
+				F54E5774294BE89D000839A7 /* Frameworks */,
+				F54E5775294BE89D000839A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "get_motion_v1.1 Watch App";
+			productName = "get_motion_v1.1 Watch App";
+			productReference = F54E5777294BE89D000839A7 /* get_motion_v1.1 Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F54E575F294BE89C000839A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					F54E5766294BE89C000839A7 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					F54E5776294BE89D000839A7 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = F54E5762294BE89C000839A7 /* Build configuration list for PBXProject "get_motion_v1.1" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F54E575E294BE89C000839A7;
+			productRefGroup = F54E5768294BE89C000839A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F54E5766294BE89C000839A7 /* get_motion_v1.1 */,
+				F54E5776294BE89D000839A7 /* get_motion_v1.1 Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F54E5765294BE89C000839A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F54E5772294BE89D000839A7 /* Preview Assets.xcassets in Resources */,
+				F54E576F294BE89D000839A7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F54E5775294BE89D000839A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F54E5784294BE89D000839A7 /* Preview Assets.xcassets in Resources */,
+				F54E5781294BE89D000839A7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F54E5763294BE89C000839A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F54E576D294BE89C000839A7 /* ContentView.swift in Sources */,
+				F54E576B294BE89C000839A7 /* get_motion_v1_1App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F54E5773294BE89D000839A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F54E577F294BE89D000839A7 /* ContentView.swift in Sources */,
+				F54E577D294BE89D000839A7 /* get_motion_v1_1App.swift in Sources */,
+				F54E57A5294CBCED000839A7 /* MotionWriter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F54E577A294BE89D000839A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F54E5776294BE89D000839A7 /* get_motion_v1.1 Watch App */;
+			targetProxy = F54E5779294BE89D000839A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F54E5785294BE89D000839A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F54E5786294BE89D000839A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		F54E5788294BE89D000839A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"get_motion_v1.1 Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 9ZJQD92N5D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "get-motion-v1-1-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = get_motion_v1.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "OharazawaAkihiko.get-motion-v1-1";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "OharazawaAkihiko.get-motion-v1-1.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		F54E5789294BE89D000839A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"get_motion_v1.1 Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 9ZJQD92N5D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "get-motion-v1-1-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = get_motion_v1.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "OharazawaAkihiko.get-motion-v1-1";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "OharazawaAkihiko.get-motion-v1-1.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		F54E578C294BE89D000839A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"get_motion_v1.1/Preview Content\"";
+				DEVELOPMENT_TEAM = 9ZJQD92N5D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "get-motion-v1-1-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = get_motion_v1.1;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "OharazawaAkihiko.get-motion-v1-1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F54E578D294BE89D000839A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"get_motion_v1.1/Preview Content\"";
+				DEVELOPMENT_TEAM = 9ZJQD92N5D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "get-motion-v1-1-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = get_motion_v1.1;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "OharazawaAkihiko.get-motion-v1-1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F54E5762294BE89C000839A7 /* Build configuration list for PBXProject "get_motion_v1.1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F54E5785294BE89D000839A7 /* Debug */,
+				F54E5786294BE89D000839A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F54E5787294BE89D000839A7 /* Build configuration list for PBXNativeTarget "get_motion_v1.1 Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F54E5788294BE89D000839A7 /* Debug */,
+				F54E5789294BE89D000839A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F54E578B294BE89D000839A7 /* Build configuration list for PBXNativeTarget "get_motion_v1.1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F54E578C294BE89D000839A7 /* Debug */,
+				F54E578D294BE89D000839A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F54E575F294BE89C000839A7 /* Project object */;
+}
