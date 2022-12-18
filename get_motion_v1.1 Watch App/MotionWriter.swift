@@ -15,10 +15,11 @@ class MotionWriter {
     let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     let formatter = DateFormatter()
     
-    func open(_ filePath: URL) { // 引数はfilePath. 引数の型名はURL型に指定
+    func open(_ filePath: URL) {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" //変換フォーマット定義
         let filename = formatter.string(from: Date()) + ".csv" //データ変換(Date->Text)
         let filePath = url.appendingPathComponent(filename)
+        
         do {
             FileManager.default.createFile(atPath: filePath.path,
                                            contents: nil,
@@ -40,9 +41,14 @@ class MotionWriter {
             header += "acceleration_y,"
             header += "acceleration_z,"
             header += "\n"
-            file.write(header.data(using: .utf8)!)
+            //file.write(header.data(using: .utf8)!)
+            do {
+                try file.write(contentsOf: header.data(using: .utf8)!)
+            } catch let error {
+                print(error)
+            }
             self.file = file
-            print("create file!")
+            print("Create file!")
         } catch let error {
             print(error)
         }
@@ -50,6 +56,7 @@ class MotionWriter {
     
     func write(_ motion: CMDeviceMotion) {
         guard let file = self.file else { return }
+        
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         let timestamp = formatter.string(from: Date())
         
@@ -68,9 +75,14 @@ class MotionWriter {
         text += "\(motion.userAcceleration.y),"
         text += "\(motion.userAcceleration.z),"
         text += "\n"
-        file.write(text.data(using: .utf8)!)
+        //file.write(text.data(using: .utf8)!)
+        print(text)
+        do {
+            try file.write(contentsOf: text.data(using: .utf8)!)
+        } catch let error {
+            print(error)
+        }
         sample += 1
-        //print(text)
     }
     
     func close() {
