@@ -12,14 +12,11 @@ class MotionWriter {
     
     var file: FileHandle?
     var sample: Int = 0
-    let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    //let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     let formatter = DateFormatter()
+    //var viewModel = ViewModel()
     
     func open(_ filePath: URL) {
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" //変換フォーマット定義
-        let filename = formatter.string(from: Date()) + ".csv" //データ変換(Date->Text)
-        let filePath = url.appendingPathComponent(filename)
-        
         do {
             FileManager.default.createFile(atPath: filePath.path,
                                            contents: nil,
@@ -41,12 +38,11 @@ class MotionWriter {
             header += "acceleration_y,"
             header += "acceleration_z,"
             header += "\n"
-            //file.write(header.data(using: .utf8)!)
             do {
                 try file.write(contentsOf: header.data(using: .utf8)!)
             } catch let error {
                 print(error)
-            }
+            } //Data write to the file
             self.file = file
             print("Create file!")
         } catch let error {
@@ -75,13 +71,12 @@ class MotionWriter {
         text += "\(motion.userAcceleration.y),"
         text += "\(motion.userAcceleration.z),"
         text += "\n"
-        //file.write(text.data(using: .utf8)!)
         print(text)
         do {
             try file.write(contentsOf: text.data(using: .utf8)!)
         } catch let error {
             print(error)
-        }
+        } // Data write
         sample += 1
     }
     

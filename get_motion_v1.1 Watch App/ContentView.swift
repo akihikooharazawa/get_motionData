@@ -11,22 +11,19 @@ import CoreMotion
 struct ContentView: View {
     
     var runtimeSession = WKExtendedRuntimeSession() // このセッションを使うことで1Hzになることを延長する
-
-    let viewModel = ViewModel()
+    var viewModel = ViewModel()
+    var filePath = ViewModel.makeFilePath()
     let writer = MotionWriter() //書き込み用classをインスタンス化
     let motionManager = CMMotionManager() //CMMotionManagerのインスタンス化
     let queue = OperationQueue()
-    
-    // URL用
-    let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    let formatter = DateFormatter()
+
     
     var body: some View {
         VStack {
             Button(action: {
                 print("START")
                 runtimeSession.start() //session start (Session to avoid 1Hz refresh rate)
-                writer.open(url) // urlにcsv fileが作成される
+                writer.open(filePath)
                 self.startQueuedUpdates()
             }, label: {
                 Text("Start")
@@ -37,6 +34,7 @@ struct ContentView: View {
             Button(action: {
                 self.motionManager.stopDeviceMotionUpdates()
                 writer.close()
+                viewModel.session.transferFile(filePath, metadata: nil)
                 print("STOP")
             }, label: {
                 Text("Stop")
@@ -45,7 +43,6 @@ struct ContentView: View {
             })
         }
     }
-    
     func startQueuedUpdates() {
         if motionManager.isDeviceMotionAvailable {
             self.motionManager.deviceMotionUpdateInterval = 1.0 / 60.0
@@ -89,7 +86,6 @@ struct ContentView: View {
             })
         }
     }
-    
 } // MARK: データを可視化させたい.
 
 struct ContentView_Previews: PreviewProvider {

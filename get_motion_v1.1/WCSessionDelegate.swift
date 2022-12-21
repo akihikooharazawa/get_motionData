@@ -10,7 +10,6 @@ import WatchConnectivity
 
 final class ViewModel: NSObject {
     
-    let formatter = DateFormatter()
     var session: WCSession
     
     init(session: WCSession = .default) {
@@ -18,20 +17,6 @@ final class ViewModel: NSObject {
         super.init()
         self.session.delegate = self
         session.activate()
-    }
-    //おためし
-    static func getDocumentPath() -> URL {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    }
-    
-    static func makeFilePath() -> URL {
-        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        let filename = formatter.string(from: Date()) + ".csv"
-        let filePath = url.appendingPathComponent(filename)
-        print(filePath.absoluteURL)
-        return filePath
     }
 }
 
@@ -49,10 +34,10 @@ extension ViewModel: WCSessionDelegate {
     }
     // iphonで受信するときのセッション
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
-        print("iphone",file)
+        print(file)
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let dest = url.appendingPathComponent(file.fileURL.lastPathComponent)
         try! FileManager.default.copyItem(at: file.fileURL, to:dest)
-        print("dest:", dest)
+        print(dest)
     }
 }
