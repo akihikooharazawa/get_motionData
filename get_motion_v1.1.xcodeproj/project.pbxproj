@@ -397,8 +397,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "get-motion-v1-1-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = get_motion_v1.1;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "OharazawaAkihiko.get-motion-v1-1";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,8 +430,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "get-motion-v1-1-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = get_motion_v1.1;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "OharazawaAkihiko.get-motion-v1-1";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

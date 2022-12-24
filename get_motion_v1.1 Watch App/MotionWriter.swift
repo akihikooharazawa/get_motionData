@@ -12,9 +12,7 @@ class MotionWriter {
     
     var file: FileHandle?
     var sample: Int = 0
-    //let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     let formatter = DateFormatter()
-    //var viewModel = ViewModel()
     
     func open(_ filePath: URL) {
         do {
@@ -57,7 +55,7 @@ class MotionWriter {
         let timestamp = formatter.string(from: Date())
         
         var text = ""
-        text += "\(timestamp)"
+        text += "\(timestamp),"
         text += "\(motion.attitude.pitch),"
         text += "\(motion.attitude.roll),"
         text += "\(motion.attitude.yaw),"

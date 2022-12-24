@@ -25,19 +25,30 @@ extension ViewModel: WCSessionDelegate {
         if let error = error {
             print(error.localizedDescription)
         } else {
-            print("The session has completed activation.")
+            print("iPhone session has activated!")
         }
     }
     func sessionDidBecomeInactive(_ session: WCSession) {
     }
     func sessionDidDeactivate(_ session: WCSession) {
     }
-    // iphonで受信するときのセッション
+    
+    // iphoneで受信
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
+        
         print(file)
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let dest = url.appendingPathComponent(file.fileURL.lastPathComponent)
         try! FileManager.default.copyItem(at: file.fileURL, to:dest)
         print(dest)
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        // メインスレッドで処理
+        DispatchQueue.main.async {
+            let receivedAnimal = message["animal"] as? String ?? "UMA"
+            let receivedEmoji = message["emoji"] as? String ?? "❓"
+            print(receivedEmoji + receivedAnimal)  // 🐱ネコ
+        }
     }
 }

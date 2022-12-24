@@ -6,22 +6,19 @@
 //
 
 import SwiftUI
-//import WatchConnectivity
 
 struct ContentView: View {
-    //@State private var message = ""
     
     var viewModel = ViewModel()
     
     @State private var isReachable = "NO"
-
+    
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
                     Button(action: {
-                        // true の場合メッセージ送信可能
-                        self.isReachable = self.viewModel.session.isReachable ? "YES": "NO"
+                        self.isReachable = viewModel.session.isReachable ? "YES": "NO"
                     }) {
                         Text("Check")
                     }
