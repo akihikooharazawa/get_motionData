@@ -69,7 +69,6 @@ class MotionWriter {
         text += "\(motion.userAcceleration.y),"
         text += "\(motion.userAcceleration.z),"
         text += "\n"
-        print(text)
         do {
             try file.write(contentsOf: text.data(using: .utf8)!)
         } catch let error {

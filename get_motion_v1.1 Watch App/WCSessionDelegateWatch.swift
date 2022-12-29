@@ -18,9 +18,6 @@ final class ViewModel: NSObject {
         self.session.delegate = self
         session.activate()
     }
-    /*static func getDocumentPath() -> URL {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    }*/
     
     static func makeFilePath() -> URL {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
