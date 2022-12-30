@@ -11,40 +11,96 @@ import WatchConnectivity
 
 struct ContentView: View {
     
-    var runtimeSession = WKExtendedRuntimeSession() // このセッションを使うことで1Hzになることを延長する
+    @State var roll: String = ""
+    @State var pitch: String = ""
+    @State var yaw: String = ""
+    @State var gravity_x: String = ""
+    @State var gravity_y: String = ""
+    @State var gravity_z: String = ""
+    @State var rotation_x: String = ""
+    @State var rotation_y: String = ""
+    @State var rotation_z: String = ""
+    @State var accx: String = ""
+    @State var accy: String = ""
+    @State var accz: String = ""
+    
+    var runtimeSession = WKExtendedRuntimeSession() // Session to avoid 1Hz refresh rate
     var viewModel = ViewModel()
     let filePath = ViewModel.makeFilePath()
-    let writer = MotionWriter() //Writerのインスタンス化
-    let motionManager = CMMotionManager() //CMMotionManagerのインスタンス化
+    let writer = MotionWriter()
+    let motionManager = CMMotionManager()
     let queue = OperationQueue()
     let formatter = DateFormatter()
-
     
     var body: some View {
-        VStack {
-            Button(action: {
-                print("START")
-                runtimeSession.start() //session start (Session to avoid 1Hz refresh rate)
-                writer.open(filePath)
-                self.startQueuedUpdates()
-            }, label: {
-                Text("Start")
-                    .bold()
-                    .foregroundColor(.green)
-            })
-            
-            Button(action: {
-                self.motionManager.stopDeviceMotionUpdates()
-                writer.close()
-                if (WCSession.default.isReachable) {
-                    viewModel.session.transferFile(filePath, metadata: nil)
+        ScrollView {
+            VStack {
+                Button(action: {
+                    print("START")
+                    runtimeSession.start() //session start (Session to avoid 1Hz refresh rate)
+                    writer.open(filePath)
+                    self.startQueuedUpdates()
+                }, label: {
+                    Text("Start")
+                        .bold()
+                        .foregroundColor(.green)
+                })
+
+                // 姿勢角(Attitude)
+                Text("Attitude")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                HStack {
+                    Text(roll)
+                    Text(pitch)
+                    Text(yaw)
                 }
-                print("STOP")
-            }, label: {
-                Text("Stop")
-                    .bold()
-                    .foregroundColor(.red)
-            })
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(Color.cyan)
+                // 重力加速度(Gravity)
+                Text("Gravity")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                HStack {
+                    Text(gravity_x)
+                    Text(gravity_y)
+                    Text(gravity_z)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(Color.cyan)
+                // 回転率(RotationRate)
+                Text("RotationRate")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                HStack {
+                    Text(rotation_x)
+                    Text(rotation_y)
+                    Text(rotation_z)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(Color.cyan)
+                // 加速度(Acceleration)
+                Text("Acceleration")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                HStack {
+                    Text(accx)
+                    Text(accy)
+                    Text(accz)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(Color.cyan)
+                
+                Button(action: {
+                    self.motionManager.stopDeviceMotionUpdates()
+                    writer.close()
+                    if (WCSession.default.isReachable) {
+                        viewModel.session.transferFile(filePath, metadata: nil)
+                    }
+                    print("STOP")
+                }, label: {
+                    Text("Stop")
+                        .bold()
+                        .foregroundColor(.red)
+                })
+                
+            }
         }
     }
     
@@ -53,67 +109,59 @@ struct ContentView: View {
             self.motionManager.deviceMotionUpdateInterval = 1.0 / 60.0
             self.motionManager.showsDeviceMovementDisplay = true
             self.motionManager.startDeviceMotionUpdates(using: .xMagneticNorthZVertical, to: self.queue, withHandler: { (data, error) in
-                if let data = data {
-                    writer.write(data)
-                }
                 if let error = error {
                     print(error)
+                    return
                 }
-                if let validData = data {
-                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS" // ISO8601 style
-                    /*
-                    let timestamp = formatter.string(from: Date())
-                    // 姿勢角(Attitude)
-                    let roll = validData.attitude.roll
-                    let pitch = validData.attitude.pitch
-                    let yaw = validData.attitude.yaw
-                    // 重力加速度(Gravity)
-                    let gravity_x = validData.gravity.x
-                    let gravity_y = validData.gravity.y
-                    let gravity_z = validData.gravity.z
-                    // 回転率(RotationRate)
-                    let rotation_x = validData.rotationRate.x
-                    let rotation_y = validData.rotationRate.y
-                    let rotation_z = validData.rotationRate.z
-                    // 加速度(Acceleration)
-                    let accx = validData.userAcceleration.x
-                    let accy = validData.userAcceleration.y
-                    let accz = validData.userAcceleration.z
-                    
-                    // 表示用の文字列を作成する
-                    let csvString = "time,roll,pitch,yaw,graX,graY,graZ,roX,roY,roZ,accX,accY,accZ\n"
-                    + "\(timestamp),\(roll),\(pitch),\(yaw),\(gravity_x),\(gravity_y),\(gravity_z),\(rotation_x),\(rotation_y),\(rotation_z),\(accx),\(accy),\(accz)\n"
-                    let csvStringData = csvString.data(using: .utf8)! //Data型に変換
-                    viewModel.session.sendMessageData(csvStringData, replyHandler: nil)
-                    */
-                    //ここを追加
-                    let message: [String: Any] = [
-                        "timestamp": formatter.string(from: Date()),
-                        "attitude_pitch": validData.attitude.pitch,
-                        "attitude_roll": validData.attitude.roll,
-                        "attitude_yaw": validData.attitude.yaw,
-                        "gravity_x": validData.gravity.x,
-                        "gravity_y": validData.gravity.y,
-                        "gravity_z": validData.gravity.z,
-                        "rotation_x": validData.rotationRate.x,
-                        "rotation_y": validData.rotationRate.y,
-                        "rotation_z": validData.rotationRate.z,
-                        "acceleration_x": validData.userAcceleration.x,
-                        "acceleration_y": validData.userAcceleration.y,
-                        "acceleration_z": validData.userAcceleration.z
-                    ]
-                    viewModel.session.sendMessage(message,
-                                                  replyHandler: { (reply) in do {
-                        //print(message)
-                    }},
-                                                  errorHandler: { (error) in do {
-                        print(error)
-                    }})
+                guard let data = data else {
+                    return
                 }
+                writer.write(data)
+                
+                // 姿勢角(Attitude)
+                self.roll = String(format: "%.2f", data.attitude.roll)
+                self.pitch = String(format: "%.2f", data.attitude.pitch)
+                self.yaw = String(format: "%.2f", data.attitude.yaw)
+                // 重力加速度(Gravity)
+                self.gravity_x = String(format: "%.2f", data.gravity.x)
+                self.gravity_y = String(format: "%.2f", data.gravity.y)
+                self.gravity_z = String(format: "%.2f", data.gravity.z)
+                // 回転率(RotationRate)
+                self.rotation_x = String(format: "%.2f", data.rotationRate.x)
+                self.rotation_y = String(format: "%.2f", data.rotationRate.y)
+                self.rotation_z = String(format: "%.2f", data.rotationRate.z)
+                // 加速度(Acceleration)
+                self.accx = String(format: "%.2f", data.userAcceleration.x)
+                self.accy = String(format: "%.2f", data.userAcceleration.y)
+                self.accz = String(format: "%.2f", data.userAcceleration.z)
+                
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS" // ISO8601 style
+                let message: [String: Any] = [
+                    "timestamp": formatter.string(from: Date()),
+                    "attitude_pitch": data.attitude.pitch,
+                    "attitude_roll": data.attitude.roll,
+                    "attitude_yaw": data.attitude.yaw,
+                    "gravity_x": data.gravity.x,
+                    "gravity_y": data.gravity.y,
+                    "gravity_z": data.gravity.z,
+                    "rotation_x": data.rotationRate.x,
+                    "rotation_y": data.rotationRate.y,
+                    "rotation_z": data.rotationRate.z,
+                    "acceleration_x": data.userAcceleration.x,
+                    "acceleration_y": data.userAcceleration.y,
+                    "acceleration_z": data.userAcceleration.z
+                ] // prepare data for send to iphone
+                viewModel.session.sendMessage(message,
+                                              replyHandler: { (reply) in do {
+                    //print(message)
+                }},
+                                              errorHandler: { (error) in do {
+                    print(error)
+                }}) // Send message to iphone.
             })
         }
     }
-} // MARK: iphone側にもデータを出したい。データを可視化させたい.
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
