@@ -13,7 +13,7 @@
 		F54E5772294BE89D000839A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54E5771294BE89D000839A7 /* Preview Assets.xcassets */; };
 		F54E5778294BE89D000839A7 /* get_motion_v1.1 Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F54E5777294BE89D000839A7 /* get_motion_v1.1 Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F54E577D294BE89D000839A7 /* get_motion_v1_1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E577C294BE89D000839A7 /* get_motion_v1_1App.swift */; };
-		F54E577F294BE89D000839A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E577E294BE89D000839A7 /* ContentView.swift */; };
+		F54E577F294BE89D000839A7 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E577E294BE89D000839A7 /* WatchContentView.swift */; };
 		F54E5781294BE89D000839A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54E5780294BE89D000839A7 /* Assets.xcassets */; };
 		F54E5784294BE89D000839A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F54E5783294BE89D000839A7 /* Preview Assets.xcassets */; };
 		F54E57A5294CBCED000839A7 /* MotionWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54E57A4294CBCED000839A7 /* MotionWriter.swift */; };
@@ -53,7 +53,7 @@
 		F54E5771294BE89D000839A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F54E5777294BE89D000839A7 /* get_motion_v1.1 Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "get_motion_v1.1 Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F54E577C294BE89D000839A7 /* get_motion_v1_1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = get_motion_v1_1App.swift; sourceTree = "<group>"; };
-		F54E577E294BE89D000839A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F54E577E294BE89D000839A7 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		F54E5780294BE89D000839A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F54E5783294BE89D000839A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F54E57A4294CBCED000839A7 /* MotionWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionWriter.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 			children = (
 				F54E57A9294CC0BC000839A7 /* get-motion-v1-1-Watch-App-Info.plist */,
 				F54E577C294BE89D000839A7 /* get_motion_v1_1App.swift */,
-				F54E577E294BE89D000839A7 /* ContentView.swift */,
+				F54E577E294BE89D000839A7 /* WatchContentView.swift */,
 				F54E57A4294CBCED000839A7 /* MotionWriter.swift */,
 				F54E57AE294D9626000839A7 /* WCSessionDelegateWatch.swift */,
 				F54E5780294BE89D000839A7 /* Assets.xcassets */,
@@ -257,7 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F54E577F294BE89D000839A7 /* ContentView.swift in Sources */,
+				F54E577F294BE89D000839A7 /* WatchContentView.swift in Sources */,
 				F54E577D294BE89D000839A7 /* get_motion_v1_1App.swift in Sources */,
 				F54E57A5294CBCED000839A7 /* MotionWriter.swift in Sources */,
 				F54E57AF294D9626000839A7 /* WCSessionDelegateWatch.swift in Sources */,

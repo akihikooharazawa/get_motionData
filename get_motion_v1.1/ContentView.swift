@@ -15,24 +15,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    Button(action: {
-                        self.isReachable = viewModel.session.isReachable ? "YES": "NO"
-                    }) {
-                        Text("Check")
-                    }
-                    .padding(.leading, 13.0)
-                    Spacer()
-                    Text("isReachable")
-                        .font(.headline)
-                        .padding()
-                    Text(self.isReachable)
-                        .foregroundColor(.gray)
-                        .font(.subheadline)
-                        .padding() 
-                }
-                .background(Color.init(.systemGray5))
-                Spacer()
             }
             .navigationTitle("Receiver")
         }

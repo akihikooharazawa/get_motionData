@@ -8,7 +8,7 @@
 import Foundation
 import WatchConnectivity
 
-final class ViewModel: NSObject {
+final class WatchViewModel: NSObject {
     
     var session: WCSession
     
@@ -29,7 +29,7 @@ final class ViewModel: NSObject {
     }
 }
 
-extension ViewModel: WCSessionDelegate {
+extension WatchViewModel: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
             print(error.localizedDescription)

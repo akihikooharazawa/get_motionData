@@ -10,50 +10,30 @@ import CoreMotion
 
 class MotionWriter {
     
-    var file: FileHandle?
-    var sample: Int = 0
-    let formatter = DateFormatter()
+    private var file: FileHandle?
+    private var sample: Int = 0
+    private let formatter = ISO8601DateFormatter()
     
     func open(_ filePath: URL) {
+        FileManager.default.createFile(atPath: filePath.path, contents: nil, attributes: nil)
+        
         do {
-            FileManager.default.createFile(atPath: filePath.path,
-                                           contents: nil,
-                                           attributes: nil)
-            
             let file = try FileHandle(forWritingTo: filePath)
-            var header = ""
-            header += "timestamp,"
-            header += "attitude_pitch,"
-            header += "attitude_roll,"
-            header += "attitude_yaw,"
-            header += "gravity_x,"
-            header += "gravity_y,"
-            header += "gravity_z,"
-            header += "rotation_x,"
-            header += "rotation_y,"
-            header += "rotation_z,"
-            header += "acceleration_x,"
-            header += "acceleration_y,"
-            header += "acceleration_z,"
-            header += "\n"
-            do {
-                try file.write(contentsOf: header.data(using: .utf8)!)
-            } catch let error {
-                print(error)
-            } //Data write to the file
+            let header = "timestamp,attitude_pitch,attitude_roll,attitude_yaw,gravity_x,gravity_y,gravity_z,rotation_x,rotation_y,rotation_z,acceleration_x,acceleration_y,acceleration_z\n"
+            try file.write(contentsOf: header.data(using: .utf8)!)
             self.file = file
-            print("Create file!")
-        } catch let error {
+        } catch {
             print(error)
         }
     }
-    
     func write(_ motion: CMDeviceMotion) {
         guard let file = self.file else { return }
         
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        //formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         let timestamp = formatter.string(from: Date())
         
+        let text = "\(timestamp),\(motion.attitude.pitch),\(motion.attitude.roll),\(motion.attitude.yaw),\(motion.gravity.x),\(motion.gravity.y),\(motion.gravity.z),\(motion.rotationRate.x),\(motion.rotationRate.y),\(motion.rotationRate.z),\(motion.userAcceleration.x),\(motion.userAcceleration.y),\(motion.userAcceleration.z)\n"
+        /*
         var text = ""
         text += "\(timestamp),"
         text += "\(motion.attitude.pitch),"
@@ -69,11 +49,13 @@ class MotionWriter {
         text += "\(motion.userAcceleration.y),"
         text += "\(motion.userAcceleration.z),"
         text += "\n"
+         */
+        
         do {
             try file.write(contentsOf: text.data(using: .utf8)!)
-        } catch let error {
+        } catch {
             print(error)
-        } // Data write
+        }
         sample += 1
     }
     

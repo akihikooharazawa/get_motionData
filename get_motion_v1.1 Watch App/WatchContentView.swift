@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  get_motion_v1.1 Watch App
-//
-//  Created by OharazawaAkihiko on 2022/12/16.
-//
-
 import SwiftUI
 import CoreMotion
 import WatchConnectivity
@@ -25,8 +18,8 @@ struct ContentView: View {
     @State var accz: String = ""
     
     var runtimeSession = WKExtendedRuntimeSession() // Session to avoid 1Hz refresh rate
-    var viewModel = ViewModel()
-    let filePath = ViewModel.makeFilePath()
+    var viewModel = WatchViewModel()
+    let filePath = WatchViewModel.makeFilePath()
     let writer = MotionWriter()
     let motionManager = CMMotionManager()
     let queue = OperationQueue()
@@ -90,9 +83,7 @@ struct ContentView: View {
                 Button(action: {
                     self.motionManager.stopDeviceMotionUpdates()
                     writer.close()
-                    if (WCSession.default.isReachable) {
-                        viewModel.session.transferFile(filePath, metadata: nil)
-                    }
+                    viewModel.session.transferFile(filePath, metadata: nil)
                     print("STOP")
                 }, label: {
                     Text("Stop")
@@ -136,28 +127,6 @@ struct ContentView: View {
                 self.accz = String(format: "%.2f", data.userAcceleration.z)
                 
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS" // ISO8601 style
-                let message: [String: Any] = [
-                    "timestamp": formatter.string(from: Date()),
-                    "attitude_pitch": data.attitude.pitch,
-                    "attitude_roll": data.attitude.roll,
-                    "attitude_yaw": data.attitude.yaw,
-                    "gravity_x": data.gravity.x,
-                    "gravity_y": data.gravity.y,
-                    "gravity_z": data.gravity.z,
-                    "rotation_x": data.rotationRate.x,
-                    "rotation_y": data.rotationRate.y,
-                    "rotation_z": data.rotationRate.z,
-                    "acceleration_x": data.userAcceleration.x,
-                    "acceleration_y": data.userAcceleration.y,
-                    "acceleration_z": data.userAcceleration.z
-                ] // prepare data for send to iphone
-                viewModel.session.sendMessage(message,
-                                              replyHandler: { (reply) in do {
-                    //print(message)
-                }},
-                                              errorHandler: { (error) in do {
-                    print(error)
-                }}) // Send message to iphone.
             })
         }
     }
