@@ -8,8 +8,10 @@
 import Foundation
 import WatchConnectivity
 import CoreMotion
+import SwiftUI
 
 final class ViewModel: NSObject, ObservableObject, WCSessionDelegate {
+    
 
     var session: WCSession
     @Published var roll: Double = 0
@@ -24,6 +26,9 @@ final class ViewModel: NSObject, ObservableObject, WCSessionDelegate {
     @Published var acc_x: Double = 0
     @Published var acc_y: Double = 0
     @Published var acc_z: Double = 0
+    
+    // userAccelerationXDataの配列を初期化
+    @Published var userAccelerationXData: [Double] = []
     
     init(session: WCSession = .default) {
         self.session = session
@@ -45,7 +50,9 @@ final class ViewModel: NSObject, ObservableObject, WCSessionDelegate {
     }
     
     // iPhone側でmessageDataを受け取る
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+    func session(_ session: WCSession,
+                 didReceiveMessage message: [String : Any],
+                 replyHandler: @escaping ([String : Any]) -> Void) {
         DispatchQueue.main.async {
             if let attitudeData = message["attitude"] as? [String: Double],
                let gravityData = message["gravity"] as? [String: Double],
@@ -67,6 +74,14 @@ final class ViewModel: NSObject, ObservableObject, WCSessionDelegate {
                 self.acc_x = userAccelerationData["x"] ?? 0
                 self.acc_y = userAccelerationData["y"] ?? 0
                 self.acc_z = userAccelerationData["z"] ?? 0
+                
+                // userAccelerationXDataにデータを追加
+                self.userAccelerationXData.append(self.acc_x)
+
+                // データ量を制限する場合（例：100データ）
+                if self.userAccelerationXData.count > 100 {
+                    self.userAccelerationXData.removeFirst()
+                }
             }
         }
         replyHandler(["reply": "OK"])

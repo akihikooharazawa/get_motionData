@@ -2,6 +2,21 @@ import SwiftUI
 import CoreMotion
 import WatchConnectivity
 
+class ExtendedRuntimeSessionDelegate: NSObject, WKExtendedRuntimeSessionDelegate {
+
+    func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        print("Extended runtime session started.")
+    }
+
+    func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
+        print("Extended runtime session will expire.")
+    }
+
+    func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {
+        print("Extended runtime session did invalidate with reason: \(reason)")
+    }
+}
+
 struct ContentView: View {
     
     @State private var roll: String = ""
@@ -17,6 +32,7 @@ struct ContentView: View {
     @State private var accy: String = ""
     @State private var accz: String = ""
     
+    private let extendedRuntimeSessionDelegate = ExtendedRuntimeSessionDelegate()
     private let runtimeSession = WKExtendedRuntimeSession() // Session to avoid 1Hz refresh rate
     private let viewModel = WatchViewModel()
     private let filePath = WatchViewModel.makeFilePath()
@@ -51,6 +67,7 @@ struct ContentView: View {
     // ボタンアクションで動作する部分(Start)
     private func startSession() {
         print("START")
+        runtimeSession.delegate = extendedRuntimeSessionDelegate
         runtimeSession.start() // バックグラウンドでも動作するようにする
         writer.open(filePath) // Dataの書き込み
         startMotionUpdates()
@@ -67,7 +84,7 @@ struct ContentView: View {
     // MotionDataを取得し、writerを用いて書き込み、sendMessageDataでiphoneに送信
     private func startMotionUpdates() {
         if motionManager.isDeviceMotionAvailable {
-            motionManager.deviceMotionUpdateInterval = 0.1
+            motionManager.deviceMotionUpdateInterval = 1.0 / 60.0 // 60 Hz
             //motionManager.showsDeviceMovementDisplay = true
             motionManager.startDeviceMotionUpdates(using: .xMagneticNorthZVertical, to: self.queue, withHandler: { (data, error) in
                 if let error = error {

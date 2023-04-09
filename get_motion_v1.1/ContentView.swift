@@ -10,6 +10,31 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var viewModel: ViewModel
+    
+    // LineGraph Shapeの定義を追加
+    struct LineGraph: Shape {
+        let data: [Double]
+        let minValue: Double
+        let maxValue: Double
+
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+            guard data.count > 1 else { return path }
+
+            let xInterval = rect.width / CGFloat(data.count - 1)
+
+            let range = maxValue - minValue
+            let scaleY = range > 0 ? rect.height / CGFloat(range) : 0
+
+            path.move(to: CGPoint(x: 0, y: rect.height - CGFloat(data[0] - minValue) * scaleY))
+            for index in 1..<data.count {
+                let xPosition = CGFloat(index) * xInterval
+                let yPosition = rect.height - CGFloat(data[index] - minValue) * scaleY
+                path.addLine(to: CGPoint(x: xPosition, y: yPosition))
+            }
+            return path
+        }
+    }
 
     var body: some View {
         VStack {
@@ -44,6 +69,12 @@ struct ContentView: View {
                 Text("Z: \(String(format: "%.2f", viewModel.acc_z))")
             }
             .foregroundColor(.purple)
+            
+            Text("User Acceleration X")
+            LineGraph(data: viewModel.userAccelerationXData, minValue: -1, maxValue: 1)
+                .stroke(Color.purple, lineWidth: 1)
+                .frame(height: 200)
+                .padding()
         }
     }
 }
