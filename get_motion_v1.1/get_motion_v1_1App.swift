@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct get_motion_v1_1App: App {
+    @StateObject var viewModel = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: viewModel)
         }
     }
 }

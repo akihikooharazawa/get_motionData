@@ -11,7 +11,6 @@ import WatchConnectivity
 final class WatchViewModel: NSObject {
     
     var session: WCSession
-    
     init(session: WCSession = .default) {
         self.session = session
         super.init()
