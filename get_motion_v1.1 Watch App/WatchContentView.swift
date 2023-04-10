@@ -3,15 +3,12 @@ import CoreMotion
 import WatchConnectivity
 
 class ExtendedRuntimeSessionDelegate: NSObject, WKExtendedRuntimeSessionDelegate {
-
     func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         print("Extended runtime session started.")
     }
-
     func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         print("Extended runtime session will expire.")
     }
-
     func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {
         print("Extended runtime session did invalidate with reason: \(reason)")
     }
@@ -67,7 +64,7 @@ struct ContentView: View {
     // ボタンアクションで動作する部分(Start)
     private func startSession() {
         print("START")
-        runtimeSession.delegate = extendedRuntimeSessionDelegate
+        runtimeSession.delegate = extendedRuntimeSessionDelegate // Assign the delegate.
         runtimeSession.start() // バックグラウンドでも動作するようにする
         writer.open(filePath) // Dataの書き込み
         startMotionUpdates()
@@ -75,6 +72,7 @@ struct ContentView: View {
     
     // ボタンアクションで動作する部分(Stop)
     private func stopSession() {
+        runtimeSession.invalidate()
         stopMotionUpdates()
         writer.close()
         viewModel.session.transferFile(filePath, metadata: nil)

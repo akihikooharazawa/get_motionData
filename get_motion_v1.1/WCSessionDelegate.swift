@@ -50,9 +50,7 @@ final class ViewModel: NSObject, ObservableObject, WCSessionDelegate {
     }
     
     // iPhone側でmessageDataを受け取る
-    func session(_ session: WCSession,
-                 didReceiveMessage message: [String : Any],
-                 replyHandler: @escaping ([String : Any]) -> Void) {
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         DispatchQueue.main.async {
             if let attitudeData = message["attitude"] as? [String: Double],
                let gravityData = message["gravity"] as? [String: Double],
