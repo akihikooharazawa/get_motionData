@@ -27,8 +27,19 @@ final class ViewModel: NSObject, ObservableObject, WCSessionDelegate {
     @Published var acc_y: Double = 0
     @Published var acc_z: Double = 0
     
-    // userAccelerationXDataの配列を初期化
+    // 配列を初期化
+    @Published var rollData: [Double] = []
+    @Published var pitchData: [Double] = []
+    @Published var yawData: [Double] = []
+    @Published var gravityXData: [Double] = []
+    @Published var gravityYData: [Double] = []
+    @Published var gravityZData: [Double] = []
+    @Published var rotationXData: [Double] = []
+    @Published var rotationYData: [Double] = []
+    @Published var rotationZData: [Double] = []
     @Published var userAccelerationXData: [Double] = []
+    @Published var userAccelerationYData: [Double] = []
+    @Published var userAccelerationZData: [Double] = []
     
     init(session: WCSession = .default) {
         self.session = session
@@ -73,12 +84,56 @@ final class ViewModel: NSObject, ObservableObject, WCSessionDelegate {
                 self.acc_y = userAccelerationData["y"] ?? 0
                 self.acc_z = userAccelerationData["z"] ?? 0
                 
-                // userAccelerationXDataにデータを追加
+                // データを追加
+                self.rollData.append(self.roll)
+                self.pitchData.append(self.pitch)
+                self.yawData.append(self.yaw)
+                self.gravityXData.append(self.rotation_x)
+                self.gravityYData.append(self.rotation_y)
+                self.gravityZData.append(self.rotation_z)
+                self.rotationXData.append(self.rotation_x)
+                self.rotationYData.append(self.rotation_y)
+                self.rotationZData.append(self.rotation_z)
                 self.userAccelerationXData.append(self.acc_x)
+                self.userAccelerationYData.append(self.acc_y)
+                self.userAccelerationZData.append(self.acc_z)
 
                 // データ量を制限する場合（例：100データ）
+                if self.rollData.count > 100 {
+                    self.rollData.removeFirst()
+                }
+                if self.pitchData.count > 100 {
+                    self.pitchData.removeFirst()
+                }
+                if self.yawData.count > 100 {
+                    self.yawData.removeFirst()
+                }
+                if self.gravityXData.count > 100 {
+                    self.gravityXData.removeFirst()
+                }
+                if self.gravityYData.count > 100 {
+                    self.gravityYData.removeFirst()
+                }
+                if self.gravityZData.count > 100 {
+                    self.gravityZData.removeFirst()
+                }
+                if self.rotationXData.count > 100 {
+                    self.rotationXData.removeFirst()
+                }
+                if self.rotationYData.count > 100 {
+                    self.rotationYData.removeFirst()
+                }
+                if self.rotationZData.count > 100 {
+                    self.rotationZData.removeFirst()
+                }
                 if self.userAccelerationXData.count > 100 {
                     self.userAccelerationXData.removeFirst()
+                }
+                if self.userAccelerationYData.count > 100 {
+                    self.userAccelerationYData.removeFirst()
+                }
+                if self.userAccelerationZData.count > 100 {
+                    self.userAccelerationZData.removeFirst()
                 }
             }
         }

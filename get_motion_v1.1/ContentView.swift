@@ -39,42 +39,84 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("Attitude")
-            HStack {
+            /*HStack {
                 Text("Roll: \(String(format: "%.2f", viewModel.roll))")
+                    .foregroundColor(.red)
                 Text("Pitch: \(String(format: "%.2f", viewModel.pitch))")
+                    .foregroundColor(.green)
                 Text("Yaw: \(String(format: "%.2f", viewModel.yaw))")
+                    .foregroundColor(.blue)
+            }*/
+            ZStack {
+                LineGraph(data: viewModel.rollData, minValue: -1, maxValue: 1)
+                    .stroke(Color.red, lineWidth: 1)
+                LineGraph(data: viewModel.pitchData, minValue: -1, maxValue: 1)
+                    .stroke(Color.green, lineWidth: 1)
+                LineGraph(data: viewModel.yawData, minValue: -1, maxValue: 1)
+                    .stroke(Color.blue, lineWidth: 1)
             }
-            .foregroundColor(.cyan)
+            .frame(height: 50)
+            .padding()
             
             Text("Gravity")
-            HStack {
+            /*HStack {
                 Text("X: \(String(format: "%.2f", viewModel.gravity_x))")
+                    .foregroundColor(.red)
                 Text("Y: \(String(format: "%.2f", viewModel.gravity_y))")
+                    .foregroundColor(.green)
                 Text("Z: \(String(format: "%.2f", viewModel.gravity_z))")
+                    .foregroundColor(.blue)
+            }*/
+            ZStack {
+                LineGraph(data: viewModel.gravityXData, minValue: -1, maxValue: 1)
+                    .stroke(Color.red, lineWidth: 1)
+                LineGraph(data: viewModel.gravityYData, minValue: -1, maxValue: 1)
+                    .stroke(Color.green, lineWidth: 1)
+                LineGraph(data: viewModel.gravityZData, minValue: -1, maxValue: 1)
+                    .stroke(Color.blue, lineWidth: 1)
             }
-            .foregroundColor(.green)
+            .frame(height: 50)
+            .padding()
 
             Text("Rotation Rate")
-            HStack {
+            /*HStack {
                 Text("X: \(String(format: "%.2f", viewModel.rotation_x))")
+                    .foregroundColor(.red)
                 Text("Y: \(String(format: "%.2f", viewModel.rotation_y))")
+                    .foregroundColor(.green)
                 Text("Z: \(String(format: "%.2f", viewModel.rotation_z))")
+                    .foregroundColor(.blue)
+            }*/
+            ZStack {
+                LineGraph(data: viewModel.rotationXData, minValue: -1, maxValue: 1)
+                    .stroke(Color.red, lineWidth: 1)
+                LineGraph(data: viewModel.rotationYData, minValue: -1, maxValue: 1)
+                    .stroke(Color.green, lineWidth: 1)
+                LineGraph(data: viewModel.rotationZData, minValue: -1, maxValue: 1)
+                    .stroke(Color.blue, lineWidth: 1)
             }
-            .foregroundColor(.orange)
+            .frame(height: 50)
+            .padding()
 
             Text("User Acceleration")
-            HStack {
+            /*HStack {
                 Text("X: \(String(format: "%.2f", viewModel.acc_x))")
+                    .foregroundColor(.red)
                 Text("Y: \(String(format: "%.2f", viewModel.acc_y))")
+                    .foregroundColor(.green)
                 Text("Z: \(String(format: "%.2f", viewModel.acc_z))")
+                    .foregroundColor(.blue)
+            }*/
+            ZStack {
+                LineGraph(data: viewModel.userAccelerationXData, minValue: -1, maxValue: 1)
+                    .stroke(Color.red, lineWidth: 1)
+                LineGraph(data: viewModel.userAccelerationYData, minValue: -1, maxValue: 1)
+                    .stroke(Color.green, lineWidth: 1)
+                LineGraph(data: viewModel.userAccelerationZData, minValue: -1, maxValue: 1)
+                    .stroke(Color.blue, lineWidth: 1)
             }
-            .foregroundColor(.purple)
-            
-            Text("User Acceleration X")
-            LineGraph(data: viewModel.userAccelerationXData, minValue: -1, maxValue: 1)
-                .stroke(Color.purple, lineWidth: 1)
-                .frame(height: 200)
-                .padding()
+            .frame(height: 50)
+            .padding()
         }
     }
 }
