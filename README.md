@@ -28,6 +28,9 @@ This application is designed to fetch and visualize the motion data from an Appl
 
 Put on your Apple Watch and move in the situation where you want to fetch the motion data. Then, open the application and you can check the fetched data in graph form.
 
+## Limitation
+Data acquired by the applewatch is displayed graphically on the iphone in real time, but when the refresh rate is automatically changed to 1hz by turning the wrist, the iphone stops updating the graph. This is due to WatchConnectivity specifications, and Apple has not provided a solution at this time.
+
 ## Contributing
 
 Contributions to this project are welcome! If you find something you'd like to improve, please feel free to create an issue or send a Pull Request.
