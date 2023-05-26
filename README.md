@@ -20,7 +20,7 @@ This application is designed to fetch and visualize the motion data from an Appl
 
 ### Steps
 
-1. Clone or download this repository:
+1. Clone or download this repository:git clone https://github.com/akihikooharazawa/get_motionData.git
 2. Open Xcode and navigate to the downloaded project file.
 3. Select "Product > Run" or press the Cmd+R keys to run the application.
 
