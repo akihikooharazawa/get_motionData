@@ -10,9 +10,10 @@ This application is designed to fetch and visualize the motion data from an Appl
 - User Acceleration (X, Y, Z)
 
 <img src="https://github.com/akihikooharazawa/get_motionData/assets/26277799/7d6f84cf-3e95-44ec-9185-ef21f58a990e" width="200px">
-<img src="https://github.com/akihikooharazawa/get_motionData/assets/26277799/9a80f604-12e8-4ee3-943c-300692efdc9d" width="320px">
+<img src="https://github.com/akihikooharazawa/get_motionData/assets/26277799/9a80f604-12e8-4ee3-943c-300692efdc9d" width="300px">
 
 ## Installation
+
 ### Requirements
 
 - iOS 14.0 or later
