@@ -4,6 +4,8 @@
 
 This application is designed to fetch and visualize the motion data from an Apple Watch. It allows you to fetch and display the following data:
 ![6DCBEFD9-BA0A-49A6-8591-C36E3C8774BC_1_102_o](https://github.com/akihikooharazawa/get_motionData/assets/26277799/a40ee584-2a52-40d3-b107-86741f4f57c7)
+
+<img src="https://github.com/akihikooharazawa/get_motionData/assets/26277799/3471677a-703e-4cfe-8788-cc180ead0c1c" width="320px">
 ![2A168200-4A95-40A5-82A5-0C27784E4CC1](https://github.com/akihikooharazawa/get_motionData/assets/26277799/3471677a-703e-4cfe-8788-cc180ead0c1c)
 
 - Attitude (Roll, Pitch, Yaw)
