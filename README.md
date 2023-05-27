@@ -13,7 +13,6 @@ This application is designed to fetch and visualize the motion data from an Appl
 <img src="https://github.com/akihikooharazawa/get_motionData/assets/26277799/9a80f604-12e8-4ee3-943c-300692efdc9d" width="320px">
 
 ## Installation
-
 ### Requirements
 
 - iOS 14.0 or later
